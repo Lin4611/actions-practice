@@ -7,5 +7,18 @@ jobs:
     task_1:
         runs-on: ubuntu-latest
         steps:
-            - name: 檢查當前路徑
-              run: echo "$(pwd)"
+            - name: 檢查 nodes.js版本
+              run: node -v
+    task_2:
+        runs-on: ubuntu-latest
+        steps:
+            - name: 下載repo
+              uses: actions/checkout@v6
+            - name: check all files
+              run: ls -al
+            - name: 設定Node.js環境
+              uses: actions/setup-node@v6
+              with:
+                node-version: 24
+            - name: check version
+              run: node -v
